@@ -6,6 +6,10 @@ class ExperiencePolicy < ApplicationPolicy
     end
   end
 
+  def home?
+    true
+  end
+
   def show?
     true
   end
