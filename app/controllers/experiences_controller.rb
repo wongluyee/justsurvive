@@ -1,2 +1,23 @@
 class ExperiencesController < ApplicationController
+
+  def show
+    @experience = Experience.find(params[:id])
+  end
+
+  def new
+    @experience = Experience.new
+  end
+
+  def create
+    @experience = Experience.new(experience_params)
+    if experience.save
+      redirect_to experiences_path
+    else
+      render :new, status: unprocessable_entity
+    end
+  end
+
+  def experience_params
+    params.require(:experience).permit(:title, :location, :category, :price, :description, :user_id)
+  end
 end

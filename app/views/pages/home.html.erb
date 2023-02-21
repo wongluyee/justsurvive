@@ -1,2 +1,15 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner text-center">
+  <h1>Survival bnb</h1>
+  <p><em>Beyond your limit</em></p>
+</div>
+<div class="container mt-3 mb-3">
+  <h3>All experiences</h3>
+  <div class="cards">
+    <% @experiences.each do |experience| %>
+      <%= link_to experience_path(experience.id) do %>
+        <div class="card-category"><%= experience.title %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
