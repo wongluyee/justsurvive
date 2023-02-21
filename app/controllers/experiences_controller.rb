@@ -2,14 +2,18 @@ class ExperiencesController < ApplicationController
 
   def show
     @experience = Experience.find(params[:id])
+    authorize @experience
   end
 
   def new
     @experience = Experience.new
+    authorize @experience
   end
 
   def create
     @experience = Experience.new(experience_params)
+    @experience.user = current_user
+    authorize @experience
     if experience.save
       redirect_to experiences_path
     else
