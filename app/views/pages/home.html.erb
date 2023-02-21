@@ -2,13 +2,12 @@
   <h1>Survival bnb</h1>
   <p><em>Beyond your limit</em></p>
 </div>
-<div class="container mt-3">
+<div class="container mt-3 mb-3">
   <h3>All experiences</h3>
   <div class="cards">
     <% @experiences.each do |experience| %>
       <%= link_to experience_path(experience.id) do %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-        url('banner.jpg')"><%= experience.title %>
+        <div class="card-category"><%= experience.title %>
         </div>
       <% end %>
     <% end %>
