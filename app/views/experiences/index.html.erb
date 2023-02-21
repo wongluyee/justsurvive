@@ -4,12 +4,21 @@
 </div>
 <div class="container mt-3 mb-3">
   <h3>All experiences</h3>
-  <div class="cards">
+  <div class="row row-cols-1 row-cols-md-2 g-4">
     <% @experiences.each do |experience| %>
-      <%= link_to experience_path(experience.id) do %>
-        <div class="card-category"><%= experience.title %>
+      <div class="col w-25">
+        <div class="card">
+          <%= link_to experience_path(experience.id), target: :_blank do %>
+            <%= image_tag("banner.jpg", alt: "experience-image", class: "card-img-top") %>
+          <% end %>
+          <div class="info d-flex justify-content-between align-items-end">
+            <div class="card-body">
+              <h5 class="card-title"><%= experience.title %></h5>
+              <p class="card-text">$<%= experience.price %>/person</p>
+            </div>
+          </div>
         </div>
-      <% end %>
+      </div>
     <% end %>
   </div>
 </div>
