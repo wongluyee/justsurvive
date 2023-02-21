@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def home
-    @experiences = Experience.all
+    @experiences = policy_scope(Experience)
   end
 end
