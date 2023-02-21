@@ -17,7 +17,7 @@ puts 'Creating restaurants...'
     location: Faker::Address.street_address,
     description: Restaurant::CATEGORY.sample
     price:
-    category:
+    category: Experience::CATEGORY.sample
   )
 end
 puts "... created #{Experience.count} restaurants."
