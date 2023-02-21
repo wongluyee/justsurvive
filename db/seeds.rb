@@ -8,16 +8,46 @@
 require 'faker'
 
 puts 'Cleaning the DB..'
+Booking.destroy_all
 Experience.destroy_all
+User.destroy_all
 
-puts 'Creating restaurants...'
+puts 'Creating  users...'
+users = []
 10.times do
-  Experience.create(
-    title: Faker::Restaurant.name,
-    location: Faker::Address.street_address,
-    description: Restaurant::CATEGORY.sample
-    price:
-    category: Experience::CATEGORY.sample
+  user = User.create!(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: "12345678"
+  )
+  users << user
+end
+
+puts 'Creating  experiences...'
+experiences = []
+user = users.sample
+10.times do
+  experience = Experience.create!(
+    title: Faker::Mountain.name,
+    location: Faker::Nation.capital_city,
+    description: Experience::CATEGORY.sample,
+    price: Faker::Number.number(digits: 4),
+    category: Experience::CATEGORY.sample,
+    user: user
+  )
+  experiences << experience
+end
+
+puts 'Creating  bookings...'
+10.times do
+  Booking.create!(
+    status: ["pending", "accepted", "rejected"].sample,
+    start_date: Faker::Date.between(from: '2023-02-23', to: '2023-03-01'),
+    end_date: Faker::Date.between(from: '2023-03-02', to: '2023-03-25'),
+    experience: experiences.sample,
+    user: users.sample
   )
 end
-puts "... created #{Experience.count} restaurants."
+
+puts "... created #{Experience.count} experiences, #{User.count} users and
+#{Booking.count} bookings."
