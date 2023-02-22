@@ -24,19 +24,87 @@ users = []
 end
 
 puts 'Creating  experiences...'
-experiences = []
 user = users.sample
-10.times do
-  experience = Experience.create!(
-    title: Faker::Mountain.name,
-    location: Faker::Nation.capital_city,
-    description: Experience::CATEGORY.sample,
-    price: Faker::Number.number(digits: 4),
-    category: Experience::CATEGORY.sample,
-    user: user
-  )
-  experiences << experience
-end
+Experience.create!(
+  title: "Lose yourself at Kilimanjaro and forget your worries",
+  location: "Tanzania",
+  description: "Be one with nature and indulge in the beauty of the wilderness",
+  price: Faker::Number.number(digits: 4),
+  category: "Mountain",
+  user: user
+)
+Experience.create!(
+  title: "Find your inner self in the Himalayas",
+  location: "Nepal",
+  description: "Tha majestic beauty of the Himalayas will leave you speechless",
+  price: Faker::Number.number(digits: 4),
+  category: "Mountain",
+  user: user
+)
+Experience.create!(
+  title: "Explore the beauty of the Amazon",
+  location: "Brazil",
+  description: "The Amazon is the largest rainforest in the world and is home to a variety of exotic animals",
+  price: Faker::Number.number(digits: 4),
+  category: "Rainforest",
+  user: user
+)
+Experience.create!(
+  title: "Witness the beauty of the Indonesion archipelago",
+  location: "Indonesia",
+  description: "The Indonesian archipelago is home to a variety of exotic animals and is a great place to explore",
+  price: Faker::Number.number(digits: 4),
+  category: "Island",
+  user: user
+)
+Experience.create!(
+  title: "Suffer in the heat of the Sahara",
+  location: "Morocco",
+  description: "The Sahara is the largest desert in the world and its harsh climate will break your will",
+  price: Faker::Number.number(digits: 4),
+  category: "Desert",
+  user: user
+)
+Experience.create!(
+  title: "Wander through the streets of Paris penniless",
+  location: "France",
+  description: "The city of love will become your city of sorrow",
+  price: Faker::Number.number(digits: 4),
+  category: "City",
+  user: user
+)
+Experience.create!(
+  title: "See the Northern Lights in Iceland",
+  location: "Iceland",
+  description: "The Northern Lights are a natural phenomenon that will leave you speechless",
+  price: Faker::Number.number(digits: 4),
+  category: "Arctic",
+  user: user
+)
+Experience.create!(
+  title: "Explore the beauty of the Serengeti",
+  location: "Tanzania",
+  description: "The Serengeti is home to a variety of exotic animals and is a great place to explore",
+  price: Faker::Number.number(digits: 4),
+  category: "Grassland",
+  user: user
+)
+Experience.create!(
+  title: "Experience the beauty of the Galapagos Islands",
+  location: "Ecuador",
+  description: "You can be the Tom Hanks to your own Castaway",
+  price: Faker::Number.number(digits: 4),
+  category: "Island",
+  user: user
+)
+Experience.create!(
+  title: "Come face to face with your worst nightmare in the Congo",
+  location: "Congo",
+  description: "Don't forget to bring your machete",
+  price: Faker::Number.number(digits: 4),
+  category: "Rainforest",
+  user: user
+)
 
 puts 'Creating  bookings...'
 10.times do
@@ -44,7 +112,7 @@ puts 'Creating  bookings...'
     status: ["pending", "accepted", "rejected"].sample,
     start_date: Faker::Date.between(from: '2023-02-23', to: '2023-03-01'),
     end_date: Faker::Date.between(from: '2023-03-02', to: '2023-03-25'),
-    experience: experiences.sample,
+    experience: Experience.all.sample,
     user: users.sample
   )
 end
