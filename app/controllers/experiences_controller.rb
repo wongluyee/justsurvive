@@ -22,7 +22,7 @@ class ExperiencesController < ApplicationController
     if @experience.save
       redirect_to experiences_path
     else
-      render :new, status: unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
