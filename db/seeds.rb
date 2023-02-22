@@ -73,38 +73,6 @@ Experience.create!(
   category: "City",
   user: user
 )
-Experience.create!(
-  title: "See the Northern Lights in Iceland",
-  location: "Iceland",
-  description: "The Northern Lights are a natural phenomenon that will leave you speechless",
-  price: Faker::Number.number(digits: 4),
-  category: "Arctic",
-  user: user
-)
-Experience.create!(
-  title: "Explore the beauty of the Serengeti",
-  location: "Tanzania",
-  description: "The Serengeti is home to a variety of exotic animals and is a great place to explore",
-  price: Faker::Number.number(digits: 4),
-  category: "Grassland",
-  user: user
-)
-Experience.create!(
-  title: "Experience the beauty of the Galapagos Islands",
-  location: "Ecuador",
-  description: "You can be the Tom Hanks to your own Castaway",
-  price: Faker::Number.number(digits: 4),
-  category: "Island",
-  user: user
-)
-Experience.create!(
-  title: "Come face to face with your worst nightmare in the Congo",
-  location: "Congo",
-  description: "Don't forget to bring your machete",
-  price: Faker::Number.number(digits: 4),
-  category: "Rainforest",
-  user: user
-)
 
 puts 'Creating  bookings...'
 10.times do
