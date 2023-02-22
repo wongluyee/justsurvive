@@ -49,9 +49,10 @@ gem "sassc-rails"
 # gem "image_processing", "~> 1.2"
 
 # custom
-gem 'faker'
+gem "cloudinary"
 gem "devise"
 gem "dotenv-rails", groups: [:development, :test]
+gem 'faker'
 gem "pundit"
 
 gem "autoprefixer-rails"
