@@ -10,11 +10,9 @@
         <div class="card">
           <%= link_to experience_path(experience.id), target: :_blank, class: "text-decoration-none text-dark" do %>
             <%= experience.photo.attached? ? cl_image_tag(experience.photo.key, alt: "experience-image", class: "card-img-top img-thumbnail") : image_tag("https://source.unsplash.com/featured?adventure&#{rand(1000)}", alt: "experience-image", class: "card-img-top img-thumbnail") %>
-            <div class="info d-flex justify-content-between align-items-end">
-              <div class="card-body">
-                <h5 class="card-title"><%= experience.title %></h5>
-                <p class="card-text">$<%= experience.price %>/person</p>
-              </div>
+            <div class="card-body" style="height: 110px;">
+              <h5 class="card-title"><%= experience.title %></h5>
+              <p class="card-text">$<%= experience.price %>/person</p>
             </div>
           <% end %>
         </div>
