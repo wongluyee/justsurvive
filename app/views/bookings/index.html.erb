@@ -1,13 +1,15 @@
 <div class="m-0 h-100">
   <div class="row h-100 position-relative">
     <div class="col-3 bg-light h-100 position-sticky top-0 shadow-sm">
-      <div class="border-bottom mx-2">
-        <h4>Menu</h4>
+      <div class="border-bottom m-3">
+        <p class="m-0">Menu</p>
       </div>
-      <h6><i class="fa-solid fa-qrcode mt-3 mx-2"></i>My Bookings</h6>
-      <h6><i class="fa-solid fa-money-bill py-2 mx-2"></i>My Hostings</h6>
-      <h6> <i class="fa-regular fa-bell py-2 mx-2"></i>Notifications</h6>
-      <h6> <i class="fa-solid fa-gear py-2 mx-2"></i>Settings</h6>
+      <div class="side-bar-items m-3">
+        <h6><i class="fa-solid fa-qrcode pb-2"></i> My Bookings</h6>
+        <h6><i class="fa-solid fa-money-bill pb-2"></i> My Hostings</h6>
+        <h6> <i class="fa-regular fa-bell pb-2"></i> Notifications</h6>
+        <h6> <i class="fa-solid fa-gear pb-2"></i> Settings</h6>
+      </div>
     </div>
     <div class="col-9 h-100 overflow-scroll rounded">
       <% @bookings.each do |booking| %>
