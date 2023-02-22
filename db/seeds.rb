@@ -50,7 +50,7 @@ Experience.create!(
   user: user
 )
 Experience.create!(
-  title: "Witness the beauty of the Indonesion archipelago",
+  title: "Witness the beauty of the Indonesian archipelago",
   location: "Indonesia",
   description: "The Indonesian archipelago is home to a variety of exotic animals and is a great place to explore",
   price: Faker::Number.number(digits: 4),
