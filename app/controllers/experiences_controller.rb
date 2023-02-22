@@ -19,7 +19,7 @@ class ExperiencesController < ApplicationController
     @experience = Experience.new(experience_params)
     @experience.user = current_user
     authorize @experience
-    if experience.save
+    if @experience.save
       redirect_to experiences_path
     else
       render :new, status: unprocessable_entity
