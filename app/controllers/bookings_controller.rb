@@ -6,13 +6,15 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @experience = Experience.find(params[:experience_id])
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    @booking.experience = @experience
     authorize @booking
-    if booking.save
+    if @booking.save
       redirect_to bookings_path
     else
-      render :new, status: unprocessable_entity
+      render "experiences/show", status: :unprocessable_entity
     end
   end
 
