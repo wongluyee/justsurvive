@@ -1,5 +1,5 @@
 class Experience < ApplicationRecord
-  CATEGORY = ["city", "island", "desert", "mountain", "jungle", "arctic", "grassland"]
+  CATEGORY = ["City", "Island", "Desert", "Mountain", "Rainforest", "Arctic", "Grassland"]
   belongs_to :user
   has_many :bookings
   # validates :name, presence: true
