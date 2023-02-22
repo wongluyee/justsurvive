@@ -9,7 +9,9 @@
       <div class="col w-25">
         <div class="card">
           <%= link_to experience_path(experience.id), target: :_blank do %>
-            <%= image_tag("banner.jpg", alt: "experience-image", class: "card-img-top") %>
+            <div class="card-img-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+        url(<%= experience.photo.attached? ? cl_image_path(experience.photo.key) : "banner.jpg" %>)">
+            </div>
           <% end %>
           <div class="info d-flex justify-content-between align-items-end">
             <div class="card-body">
