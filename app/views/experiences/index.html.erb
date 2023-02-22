@@ -8,17 +8,15 @@
     <% @experiences.each do |experience| %>
       <div class="col w-25">
         <div class="card">
-          <%= link_to experience_path(experience.id), target: :_blank do %>
-            <div class="card-img-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-        url(<%= experience.photo.attached? ? cl_image_path(experience.photo.key) : "banner.jpg" %>)">
+          <%= link_to experience_path(experience.id), target: :_blank, class: "text-decoration-none text-dark" do %>
+            <%= experience.photo.attached? ? cl_image_tag(experience.photo.key, alt: "experience-image", class: "card-img-top img-thumbnail") : image_tag("banner.jpg", alt: "experience-image", class: "card-img-top img-thumbnail") %>
+            <div class="info d-flex justify-content-between align-items-end">
+              <div class="card-body">
+                <h5 class="card-title"><%= experience.title %></h5>
+                <p class="card-text">$<%= experience.price %>/person</p>
+              </div>
             </div>
           <% end %>
-          <div class="info d-flex justify-content-between align-items-end">
-            <div class="card-body">
-              <h5 class="card-title"><%= experience.title %></h5>
-              <p class="card-text">$<%= experience.price %>/person</p>
-            </div>
-          </div>
         </div>
       </div>
     <% end %>
