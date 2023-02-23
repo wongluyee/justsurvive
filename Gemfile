@@ -49,6 +49,7 @@ gem "sassc-rails"
 # gem "image_processing", "~> 1.2"
 
 # custom
+gem "pg_search"
 gem "cloudinary"
 gem "devise"
 gem "dotenv-rails", groups: [:development, :test]
