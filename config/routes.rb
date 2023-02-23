@@ -14,5 +14,6 @@ Rails.application.routes.draw do
 
   namespace :hosts do
     resources :bookings, only: :index
+    resources :experiences, only: :index
   end
 end
