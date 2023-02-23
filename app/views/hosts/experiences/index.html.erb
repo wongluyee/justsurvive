@@ -15,7 +15,7 @@
           <div class="row">
             <div class="col-3 mt-3">
               <div class="card">
-                <%= experience.photo.attached? ? cl_image_tag(experience.photo.key, alt: "experience-image") : image_tag("https://source.unsplash.com/featured?adventure&#{rand(1000)}", alt: "experience-image") %>
+                <%= experience.photo.attached? ? cl_image_tag(experience.photo.key, alt: "experience-image", class: "card-img-top") : image_tag("https://source.unsplash.com/featured?adventure&#{rand(1000)}", alt: "experience-image", class: "card-img-top") %>
               </div>
             </div>
             <div class="col-6">
