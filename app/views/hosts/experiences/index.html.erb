@@ -2,14 +2,11 @@
   <div class="row h-100 position-relative">
     <%= render 'shared/sidenav' %>
     <div class="col-10 h-100 overflow-scroll rounded">
-      <% @experiences.each do |booking| %>
+      <% @experiences.each do |experience| %>
         <div class="card m-3 p-3 shadow-sm rounded">
-          <div class="row justify-content-between border-bottom">
+          <div class="row border-bottom">
             <div class="col-6">
-              <h5>Booking Info</h5>
-            </div>
-            <div class="col-6 text-right">
-              <h5 class="text-end"> Contact Host</h5>
+              <h5>Listing Info</h5>
             </div>
           </div>
           <div class="row">
