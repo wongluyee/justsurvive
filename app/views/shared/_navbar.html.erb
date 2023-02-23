@@ -6,14 +6,12 @@
     <div class="input-group w-50 d-flex align-items-start rounded">
       <%= form_with url: experiences_path, method: :get, class: "d-flex rounded" do %>
       <div class="search-bar">
-
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
           placeholder: "Find an experience"
         %>
       </div>
-
     <% end %>
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
