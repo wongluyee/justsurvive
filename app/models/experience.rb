@@ -12,4 +12,11 @@ class Experience < ApplicationRecord
   validates :category, presence: true
   validates :description, presence: true
   validates :category, inclusion: { in: CATEGORY }
+
+  include PgSearch::Model
+  pg_search_scope :search_by_tlcd,
+    against: [ :title, :location, :category, :description ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
