@@ -14,6 +14,12 @@ class ExperiencesController < ApplicationController
   def show
     @booking = Booking.new
     authorize @experience
+
+    @markers = [
+      {
+        lat: @experience.latitude,
+        lng: @experience.longitude
+      } ]
   end
 
   def new
