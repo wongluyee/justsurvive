@@ -1,4 +1,5 @@
 class ExperiencesController < ApplicationController
+  before_action :set_experience, only: [:show, :edit, :update]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
@@ -11,7 +12,6 @@ class ExperiencesController < ApplicationController
   end
 
   def show
-    @experience = Experience.find(params[:id])
     @booking = Booking.new
     authorize @experience
 
@@ -36,6 +36,25 @@ class ExperiencesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+    authorize @experience
+  end
+
+  def update
+    authorize @experience
+    if @experience.update(experience_params)
+      redirect_to experience_path(@experience)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def set_experience
+    @experience = Experience.find(params[:id])
   end
 
   def experience_params

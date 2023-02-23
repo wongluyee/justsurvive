@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  resources :experiences, only: [:index, :show, :new, :create] do
+  resources :experiences, only: [:index, :show, :new, :create, :edit, :update] do
     resources :bookings, only: [:create]
   end
 
@@ -14,6 +14,6 @@ Rails.application.routes.draw do
 
   namespace :hosts do
     resources :bookings, only: :index
-    resources :experiences, only: :index
+    resources :experiences, only: [:index, :edit, :update]
   end
 end
