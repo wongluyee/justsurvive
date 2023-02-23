@@ -3,6 +3,11 @@ class ExperiencesController < ApplicationController
 
   def index
     @experiences = policy_scope(Experience)
+    if params[:query].present?
+      @experiences = @experiences.search_by_tlcd(params[:query])
+    else
+      @experiences = Experience.all
+    end
   end
 
   def show
