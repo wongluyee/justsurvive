@@ -12,7 +12,7 @@
             <%= experience.photo.attached? ? cl_image_tag(experience.photo.key, alt: "experience-image", class: "card-img-top img-thumbnail") : image_tag("https://source.unsplash.com/featured?adventure&#{rand(1000)}", alt: "experience-image", class: "card-img-top img-thumbnail") %>
             <div class="card-body" style="height: 110px;">
               <h5 class="card-title"><%= experience.title %></h5>
-              <p class="card-text">$<%= experience.price %>/person</p>
+              <p class="card-text"><%= number_to_currency("#{experience.price}", {unit: '¥', precision: 0}) %>/person</p>
             </div>
           <% end %>
         </div>

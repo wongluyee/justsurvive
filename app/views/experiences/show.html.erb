@@ -52,7 +52,7 @@
       </div>
     </div>
     <div class="col-4 border border-dark mb-2 rounded-4 pt-5 text-center">
-      <h3> $<%=@experience.price%>/Person</h3>
+      <h3><%= number_to_currency("#{experience.price}", {unit: '¥', precision: 0}) %>/Person</h3>
       <%= simple_form_for [@experience,@booking] do |f|%>
         <%= f.input :start_date, html5: true %>
         <%= f.input :end_date, html5: true %>
