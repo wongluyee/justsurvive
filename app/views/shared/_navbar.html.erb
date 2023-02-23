@@ -1,9 +1,12 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="z-index: 10;">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
+   <div class="d-flex justify-content-start">
+   <div>
+     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "https://cdn2.steamgriddb.com/file/sgdb-cdn/logo/2d2c8394e31101a261abf1784302bf75.png" %>
     <% end %>
-    <div class="input-group w-50 d-flex align-items-start rounded">
+    </div>
+     <div class="input-group w-50">
       <%= form_with url: experiences_path, method: :get, class: "d-flex rounded" do %>
       <div class="search-bar">
         <%= text_field_tag :query,
@@ -11,8 +14,9 @@
           class: "form-control",
           placeholder: "Find an experience"
         %>
+        </div>
+      <% end %>
       </div>
-    <% end %>
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

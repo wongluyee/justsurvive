@@ -4,14 +4,6 @@
   position: sticky;
   top: 0;
 }
-.container-fluid {
-  position: relative;
-}
-.search-bar {
-  position: absolute;
-  left: -300px;
-  top: -20px;
-}
 
 .form-control {
   background-image: asset-url('gkass.png');
@@ -21,6 +13,7 @@
   background-size: 40px;
   text-indent: 25px;
   border-radius: 8px;
+  width: 300px;
 }
 
 .navbar-lewagon .navbar-collapse {
