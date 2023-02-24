@@ -1,17 +1,11 @@
 <div class="m-0 h-100">
   <div class="row h-100 position-relative">
-    <div class="col-3 bg-light h-100 position-sticky top-0 shadow-sm">
-      <div class="border-bottom mx-2"><h4>Menu</h4></div>
-      <h6><i class="fa-solid fa-qrcode mt-3 mx-2"></i>My Bookings</h6>
-      <h6><i class="fa-solid fa-money-bill py-2 mx-2"></i>My Hostings</h6>
-      <h6> <i class="fa-regular fa-bell py-2 mx-2"></i>Notifications</h6>
-      <h6> <i class="fa-solid fa-gear py-2 mx-2"></i>Settings</h6>
-    </div>
-
-    <div class="col-9 h-100 overflow-scroll rounded" >
-          <%= render @bookings %>
-
-
+    <%= render 'shared/sidenav' %>
+    <div class="col-10 h-100 overflow-scroll">
+      <h2 class="m-3">My Requests</h2>
+      <% @bookings.each do |booking| %>
+        <%= render 'hosts/bookings/card', booking: booking %>
+      <% end %>
     </div>
   </div>
 </div>

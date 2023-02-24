@@ -1,8 +1,6 @@
 class BookingsController < ApplicationController
-
   def index
     @bookings = policy_scope(Booking)
-
   end
 
   def create
@@ -28,7 +26,7 @@ class BookingsController < ApplicationController
         format.html { redirect_to booking_path(@booking) }
         format.json do
           render json: {
-            booking_html: render_to_string(partial: 'hosts/bookings/booking', formats: :html, locals: { booking: @booking } ),
+            booking_html: render_to_string(partial: 'hosts/bookings/card', formats: :html, locals: { booking: @booking } ),
           }.to_json
         end
       end

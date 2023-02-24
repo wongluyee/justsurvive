@@ -13,13 +13,15 @@ class ExperiencesController < ApplicationController
 
   def show
     @booking = Booking.new
+    @review = Review.new
     authorize @experience
 
     @markers = [
       {
         lat: @experience.latitude,
         lng: @experience.longitude
-      } ]
+      }
+    ]
   end
 
   def new
@@ -45,7 +47,7 @@ class ExperiencesController < ApplicationController
   def update
     authorize @experience
     if @experience.update(experience_params)
-      redirect_to experience_path(@experience)
+      redirect_to hosts_experiences_path
     else
       render :edit, status: :unprocessable_entity
     end

@@ -4,6 +4,7 @@ class Experience < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_location?
   belongs_to :user
   has_many :bookings
+  has_many :reviews, dependent: :destroy
   has_one_attached :photo
 
   validates :title, presence: true
