@@ -21,7 +21,16 @@ class BookingsController < ApplicationController
     # raise 'NotAuthorizedError' unless current_user == @booking.user
     authorize @booking
     if @booking.update(booking_params)
-      redirect_to booking_path(@booking)
+      respond_to do |format|
+        # display the form again
+        format.html { redirect_to booking_path(@booking) }
+        format.json do
+          render json: {
+            booking_html: render_to_string(partial: 'hosts/bookings/card', formats: :html, locals: { booking: @booking } ),
+          }.to_json
+        end
+      end
+
     else
       render :edit, status: :unprocessable_entity
     end
