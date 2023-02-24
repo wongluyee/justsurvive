@@ -23,15 +23,17 @@
           <div>
             <%= simple_form_for booking do |f| %>
               <%= f.input :status, as: :hidden, input_html: {value: 'accepted'} %>
-              <%= f.submit class: "btn btn-outline-success me-2" do %>
-                <p><i class="fa-solid fa-check"></i> Accept"</p>
+              <%= button_tag class: "btn btn-outline-success me-2" do %>
+                <i class="fa-solid fa-check"></i> Accept
               <% end %>
             <% end %>
           </div>
           <div>
             <%= simple_form_for booking do |f| %>
               <%= f.input :status, as: :hidden, input_html: {value: 'rejected'} %>
-              <%= f.submit 'Reject', class: 'btn btn-outline-danger' %>
+              <%= button_tag class: "btn btn-outline-danger" do %>
+                <i class="fa-solid fa-xmark"></i> Reject
+              <% end %>
             <% end %>
           </div>
         </div>
