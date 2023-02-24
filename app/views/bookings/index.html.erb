@@ -2,6 +2,7 @@
   <div class="row h-100 position-relative">
     <%= render 'shared/sidenav' %>
     <div class="col-10 h-100 overflow-scroll rounded">
+      <h2 class="m-3">My Bookings</h2>
       <% @bookings.each do |booking| %>
         <%= render 'bookings/card', booking: booking %>
       <% end %>
