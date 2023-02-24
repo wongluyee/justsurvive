@@ -1,11 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
+require 'open-uri'
+require 'nokogiri'
 
 puts 'Cleaning the DB..'
 Booking.destroy_all
@@ -13,25 +8,47 @@ Experience.destroy_all
 User.destroy_all
 
 puts 'Creating  users...'
-users = []
-10.times do
-  user = User.create!(
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
+
+def host
+  host = User.create!(
+    name: "Luyee",
+    email: "luyee@wong.com",
     password: "12345678"
   )
-  users << user
+  url = 'https://this-person-does-not-exist.com/en'
+  doc = Nokogiri::HTML(URI.open(url).read)
+  src = doc.search('#avatar').first['src']
+  photo_url = "https://this-person-does-not-exist.com#{src}"
+  file = URI.open(photo_url)
+  host.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
+  host
+end
+
+def user
+  user = User.create!(
+    name: "Joe",
+    email: "joe@lucien.com",
+    password: "12345678"
+  )
+  url = 'https://this-person-does-not-exist.com/en'
+  doc = Nokogiri::HTML(URI.open(url).read)
+  src = doc.search('#avatar').first['src']
+  photo_url = "https://this-person-does-not-exist.com#{src}"
+  file = URI.open(photo_url)
+  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
+  user
 end
 
 puts 'Creating  experiences...'
-user = users.sample
+user = user()
+host = host()
 Experience.create!(
   title: "Lose yourself at Kilimanjaro and forget your worries",
   location: "Tanzania",
   description: "Be one with nature and indulge in the beauty of the wilderness",
   price: Faker::Number.number(digits: 4),
   category: "Mountain",
-  user: user
+  user: host
 )
 Experience.create!(
   title: "Find your inner self in the Himalayas",
@@ -39,7 +56,7 @@ Experience.create!(
   description: "Tha majestic beauty of the Himalayas will leave you speechless",
   price: Faker::Number.number(digits: 4),
   category: "Mountain",
-  user: user
+  user: host
 )
 Experience.create!(
   title: "Explore the beauty of the Amazon",
@@ -47,7 +64,7 @@ Experience.create!(
   description: "The Amazon is the largest rainforest in the world and is home to a variety of exotic animals",
   price: Faker::Number.number(digits: 4),
   category: "Rainforest",
-  user: user
+  user: host
 )
 Experience.create!(
   title: "Witness the beauty of the Indonesian archipelago",
@@ -55,7 +72,7 @@ Experience.create!(
   description: "The Indonesian archipelago is home to a variety of exotic animals and is a great place to explore",
   price: Faker::Number.number(digits: 4),
   category: "Island",
-  user: user
+  user: host
 )
 Experience.create!(
   title: "Suffer in the heat of the Sahara",
@@ -63,7 +80,7 @@ Experience.create!(
   description: "The Sahara is the largest desert in the world and its harsh climate will break your will",
   price: Faker::Number.number(digits: 4),
   category: "Desert",
-  user: user
+  user: host
 )
 Experience.create!(
   title: "Wander through the streets of Paris penniless",
@@ -71,7 +88,7 @@ Experience.create!(
   description: "The city of love will become your city of sorrow",
   price: Faker::Number.number(digits: 4),
   category: "City",
-  user: user
+  user: host
 )
 
 puts 'Creating  bookings...'
@@ -81,7 +98,7 @@ puts 'Creating  bookings...'
     start_date: Faker::Date.between(from: '2023-02-23', to: '2023-03-01'),
     end_date: Faker::Date.between(from: '2023-03-02', to: '2023-03-25'),
     experience: Experience.all.sample,
-    user: users.sample
+    user: user
   )
 end
 
