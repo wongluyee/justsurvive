@@ -1,6 +1,7 @@
 <div class="m-0 h-100">
   <div class="row h-100 position-relative">
     <%= render 'shared/sidenav' %>
+<<<<<<< HEAD
     <div class="col-10 h-100 overflow-scroll">
       <% @bookings.each do |booking| %>
         <div class="card m-3 p-3 shadow-sm">
@@ -61,6 +62,12 @@
             </div>
           </div>
         </div>
+=======
+    <div class="col-10 h-100 overflow-scroll rounded">
+      <h2 class="m-3">My Bookings</h2>
+      <% @bookings.each do |booking| %>
+        <%= render 'bookings/card', booking: booking %>
+>>>>>>> master
       <% end %>
     </div>
   </div>
