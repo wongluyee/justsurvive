@@ -1,0 +1,7 @@
+<div class="container mb-3">
+  <%= simple_form_for [@experience, @review] do |f| %>
+    <%= f.input :rating, as: :select, collection: Review::RATINGS %>
+    <%= f.input :comment %>
+    <%= f.button :submit, class: "btn btn-outline-secondary" %>
+ </div>
+  <% end %>
