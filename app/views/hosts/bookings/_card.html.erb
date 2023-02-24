@@ -1,0 +1,76 @@
+<div class="card mx-2 my-2 p-3 shadow-sm rounded">
+  <div class="row justify-content-between border-bottom">
+    <div class="col-6">
+      <h3>Booking Info</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3 mt-4">
+      <%= image_tag("banner.jpg", alt: "experience-image", class: "card-img-top") %>
+    </div>
+    <div class="col-6">
+      <div class="mt-3">
+        <h1><%= booking.experience.title %></h1>
+      </div>
+      <h3>Description</h3>
+      <p><%= booking.experience.description %></p>
+      <div class="d-flex justify-content-between">
+        <div>
+          <h3>Status</h3>
+          <p><%= booking.status %></p>
+        </div>
+        <div>
+          <h3>Start-Date</h3>
+          <p><%= booking.start_date %></p>
+        </div>
+        <div>
+          <h3>End-Date</h3>
+          <p><%= booking.end_date %></p>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <div>
+          <h4>Booked By</h4>
+          <p><%= booking.user.name %></p>
+        </div>
+        <% if booking.pending? %>
+          <div>
+            <%= simple_form_for booking do |f| %>
+              <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+              <%= f.submit 'Accept', class: 'btn btn-info' %>
+            <% end %>
+          </div>
+          <div>
+            <%= simple_form_for booking do |f| %>
+              <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+              <%= f.submit 'Reject', class: 'btn btn-light' %>
+            <% end %>
+          </div>
+        <% else %>
+          <!-- Display Status-->
+          <p class='booking-tag'><%= booking.status %></p>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-3 border-start d-flex flex-column">
+      <div>
+        <div class="mt-3">
+          <h3>Price</h3>
+        </div>
+        <h6>$ <%= booking.experience.price %></h6>
+      </div>
+      <div>
+        <div class="mt-3">
+          <h3>Location</h3>
+        </div>
+        <h6><%= booking.experience.location %></h6>
+      </div>
+      <div>
+        <div class="mt-3">
+          <h3>Category</h3>
+        </div>
+        <h6> <%= booking.experience.category %></h6>
+      </div>
+    </div>
+  </div>
+</div>
