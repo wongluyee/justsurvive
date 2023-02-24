@@ -15,7 +15,7 @@
             <p class="mb-0">Hosted by <strong><%=@experience.user["name"]%></strong></p>
           </div>
           <div class="col-1">
-            <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
+            <%= image_tag current_user.photo, class: "avatar" %>
           </div>
         </div>
         <p class="mt-3"><%= @experience.description %></p>
