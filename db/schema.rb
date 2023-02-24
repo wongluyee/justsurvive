@@ -72,7 +72,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_24_032545) do
     t.string "username"
     t.float "rating"
     t.text "comment"
-    t.date "reviewed_on"
+    t.date "reviewed_on", default: "2023-02-24"
     t.bigint "experience_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
