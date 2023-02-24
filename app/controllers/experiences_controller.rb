@@ -45,7 +45,7 @@ class ExperiencesController < ApplicationController
   def update
     authorize @experience
     if @experience.update(experience_params)
-      redirect_to experience_path(@experience)
+      redirect_to hosts_experiences_path
     else
       render :edit, status: :unprocessable_entity
     end
