@@ -1,0 +1,16 @@
+<div class="col-md-4 col-lg-3 mb-5 mb-md-0">
+  <h5 class="mb-3"></h5>
+  <p class="px-xl-3">
+    <i class="fas fa-quote-left pe-2"></i>
+    <%=review.comment %>
+  </p>
+  <!-- Font Awesome needed -->
+  <div class="d-flex justify-content-evenly">
+    <% review.rating.to_i.times do %>
+      <i class="fas fa-star text-info"></i>
+    <% end %>
+    <% (5 - review.rating).to_i.times do %>
+      <i class="far fa-star"></i>
+    <% end %>
+  </div>
+</div>
