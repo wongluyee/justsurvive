@@ -1,0 +1,7 @@
+<% if booking.status == "accepted" %>
+  <span class="badge rounded-pill text-bg-success text-light"><%= booking.status %></span>
+<% elsif booking.status == "rejected" %>
+  <span class="badge rounded-pill text-bg-danger text-light"><%= booking.status %></span>
+<% else %>
+  <span class="badge rounded-pill text-bg-info"><%= booking.status %></span>
+<% end %>
