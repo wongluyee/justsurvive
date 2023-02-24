@@ -1,11 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
+require 'open-uri'
+require 'nokogiri'
 
 puts 'Cleaning the DB..'
 Booking.destroy_all
@@ -20,6 +15,12 @@ users = []
     email: Faker::Internet.email,
     password: "12345678"
   )
+  url = 'https://this-person-does-not-exist.com/en'
+  doc = Nokogiri::HTML(URI.open(url).read)
+  src = doc.search('#avatar').first['src']
+  photo_url = "https://this-person-does-not-exist.com#{src}"
+  file = URI.open(photo_url)
+  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
   users << user
 end
 
