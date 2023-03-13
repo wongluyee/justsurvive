@@ -1,4 +1,4 @@
-# ProMGR
+# JustSurvive
 
 <b>Description:</b>
 Its an app that allows users to host and book survival experiences.
