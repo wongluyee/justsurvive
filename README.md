@@ -17,7 +17,7 @@ App home: https://survivalexperience.herokuapp.com/
 
 Host Details </br>
 User: luyee@wong.com
-pW:12345678
+PW: 12345678
 
 
 ## Features
