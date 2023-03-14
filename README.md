@@ -1,7 +1,7 @@
 # JustSurvive
 
 <b>Description:</b>
-It iss an app that allows users to host and book survival experiences.
+It is an app that allows users to host and book survival experiences.
 
 In a team of four, we create the app by first protoyping the UI design and user journeys using Figma, then dividing the tasks into actionable steps using Trello. We ensured minimal bugs throughout the development process by doing code reviews before pushing to Github.
 
