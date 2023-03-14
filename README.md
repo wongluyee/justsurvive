@@ -1,9 +1,9 @@
 # JustSurvive
 
 <b>Description:</b>
-Its an app that allows users to host and book survival experiences.
+It iss an app that allows users to host and book survival experiences.
 
-In a team of four, we create the app by first protoyping the UI design and user journeys using figma, then dividing the tasks into actionable steps using Trello. We ensured minimal bugs throughout the development process by doing code reviews before pushing to Github.
+In a team of four, we create the app by first protoyping the UI design and user journeys using Figma, then dividing the tasks into actionable steps using Trello. We ensured minimal bugs throughout the development process by doing code reviews before pushing to Github.
 
 <ins>Experiences List</ins>
 ![screenshot](https://github.com/joshnsw/joshportfolio/blob/master/assets/justsurvivehome.png)
@@ -23,7 +23,7 @@ PW: 12345678
 ## Features
 
 <ins>Host</ins>
--  [Host an experience] : Create experiences by submitting a form, and request or accept booking requests through your user profile.
+- [Host an experience] : Create experiences by submitting a form, and request or accept booking requests through your user profile.
 - [Book an experience] : Book experiences by sending a request to the host.
 
 
